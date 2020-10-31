@@ -1,4 +1,5 @@
 Learning courtesy of: https://youtu.be/W0wWwglE1Vc
+Deployment courtesy of: https://www.youtube.com/watch?v=iLvMYXKIcPo
 
 For this app to work correctly:
 - Remove all Reply Tweets on AutoKuBot's Twitter.  It won't post duplicates.
