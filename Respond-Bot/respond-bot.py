@@ -54,5 +54,5 @@ class Solution:
                 time.sleep(5)
 
 
-obj1 = Solution()
-obj1.reply_to_tweets()
+# obj1 = Solution()
+# obj1.reply_to_tweets()
