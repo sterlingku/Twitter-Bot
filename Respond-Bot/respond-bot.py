@@ -2,12 +2,13 @@
 
 import time
 import tweepy
+# stores the API keys somewhere else, so people can't find it in your code.  It is in Heroku Config Vars
+from os import environ
 
-# Bearer token = 'AAAAAAAAAAAAAAAAAAAAAB%2BqIAEAAAAAmBwuUMjqBPKSQKIe5qF62KMClJM%3DodxsB1NgXdkNj3k9BHc7rL9He5xkoqd3Q66MxUykxlVxPecwHA'
-API_CONSUMER_KEY = 'IV3rcg6kUyU5bZqWCmJH2RPOb'
-API_CONSUMER_SECRET = 'yP9VNahI9jSlSNvjvKDra1882ryIpbZwWk25LqQVDS6T18zC4r'
-ACCESS_TOKEN_KEY = '1310750946025115648-GHlX2WHvozVdUFnrOkf7rmh6IMnVTX'
-ACCESS_TOKEN_SECRET = 'XhwsHMES7tFPHIDpL9ncT954H14lBxUg6bzwyBQe72TH3'
+API_CONSUMER_KEY = environ['API_CONSUMER_KEY']
+API_CONSUMER_SECRET = environ['API_CONSUMER_SECRET']
+ACCESS_TOKEN_KEY = environ['ACCESS_TOKEN_KEY']
+ACCESS_TOKEN_SECRET = environ['ACCESS_TOKEN_SECRET']
 
 auth = tweepy.OAuthHandler(API_CONSUMER_KEY, API_CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
