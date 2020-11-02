@@ -52,7 +52,7 @@ class Solution:
                 print(tweepy.error.TweepError)
                 api.update_status('@' + mention.user.screen_name + ' HelloWorld back to you!', mention.id)
                 # sleep for every 5 seconds
-                time.sleep(5)
+                time.sleep(10)
 
 
 # obj1 = Solution()
