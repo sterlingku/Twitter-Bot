@@ -17,8 +17,29 @@ api = tweepy.API(auth)
 file_name = 'last_seen.txt'
 
 
+def reply_to_tweets():
+    print('Retrieving and replying to tweets...')
+    last_id = retrieve_seen_id()
+    # all mentions since the latest last_id
+    mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
+    # iterate through each mention in reverse to reply to older tweets first
+    while True:
+        for mention in reversed(mentions):
+            print(mention)
+            # reply to tweets that meet criteria below
+            if '#helloworld!' in mention.full_text.lower():
+                store_seen_id(mention.id)
+                print(str(mention.id) + ' - ' + mention.user.screen_name + ' - ' + mention.full_text)
+                print('Found #helloworld! Responding back...')
+                # prints an error, if any
+                print(tweepy.error.TweepError)
+                api.update_status('@' + mention.user.screen_name + ' HelloWorld back to you!', mention.id)
+                # sleep for every 5 seconds
+                time.sleep(10)
+
+
 # store the seen_id, so bot knows where to continue from next time
-def store_seen_id(seen_id, file_name):
+def store_seen_id(seen_id):
     f_write = open(file_name, 'a')
     f_write.write('\n' + str(seen_id))
     f_write.close()
@@ -33,23 +54,3 @@ def retrieve_seen_id():
     # int(f_read[-1].read().strip())  # not needed
     f_read.close()
     return last_seen_id
-
-
-def reply_to_tweets():
-    print('Retrieving and replying to tweets...')
-    last_id = retrieve_seen_id()
-    # all mentions since the latest last_id
-    mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
-    # iterate through each mention in reverse to reply to older tweets first
-    for mention in reversed(mentions):
-        print(mention)
-        # reply to tweets that meet criteria below
-        if '#helloworld!' in mention.full_text.lower():
-            store_seen_id(mention.id, file_name)
-            print(str(mention.id) + ' - ' + mention.user.screen_name + ' - ' + mention.full_text)
-            print('Found #helloworld! Responding back...')
-            # prints an error, if any
-            print(tweepy.error.TweepError)
-            api.update_status('@' + mention.user.screen_name + ' HelloWorld back to you!', mention.id)
-            # sleep for every 5 seconds
-            time.sleep(10)
