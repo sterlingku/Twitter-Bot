@@ -45,7 +45,10 @@ class Tweet:
                     print('Found #helloworld! Responding back...')
                     # prints an error, if any
                     print(tweepy.error.TweepError)
+                    # this is the tweet message
                     api.update_status('@' + mention.user.screen_name + ' HelloWorld back to you!', mention.id)
+                    # favorite the tweet
+                    api.create_favorite(mention.id)
                     # sleep for 5 seconds before replying
                     time.sleep(5)
                 else:
