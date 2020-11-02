@@ -3,7 +3,6 @@
 import time
 import tweepy
 
-
 # testing locally via .env file
 # import os
 # from dotenv import load_dotenv
@@ -37,7 +36,7 @@ class Tweet:
             mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
             # iterate through each mention in reverse to reply to older tweets first
             for mention in reversed(mentions):
-                print(mention)
+                # print(mention)
                 # reply to tweets that meet criteria below
                 if '#helloworld!' in mention.full_text.lower():
                     self.store_seen_id(mention.id)
@@ -51,8 +50,6 @@ class Tweet:
                     api.create_favorite(mention.id)
                     # sleep for 5 seconds before replying
                     time.sleep(5)
-                else:
-                    print('No new tweets.  Running again soon...')
             # sleep for 10 seconds before re-running
             time.sleep(10)
 
