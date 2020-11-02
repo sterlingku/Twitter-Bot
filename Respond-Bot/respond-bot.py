@@ -2,10 +2,19 @@
 
 import time
 import tweepy
-# stores the API keys somewhere else, so people can't find it in your code.  It is in Heroku Config Vars
+import os
+from dotenv import load_dotenv
 from os import environ
 
 
+# testing locally via .env file
+# load_dotenv()
+# API_CONSUMER_KEY = os.getenv('API_CONSUMER_KEY')
+# API_CONSUMER_SECRET = os.getenv('API_CONSUMER_SECRET')
+# ACCESS_TOKEN_KEY = os.getenv('ACCESS_TOKEN_KEY')
+# ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
+
+# stores the API keys somewhere else, so people can't find it in your code.  It is in Heroku Config Vars
 API_CONSUMER_KEY = environ['API_CONSUMER_KEY']
 API_CONSUMER_SECRET = environ['API_CONSUMER_SECRET']
 ACCESS_TOKEN_KEY = environ['ACCESS_TOKEN_KEY']
@@ -17,18 +26,19 @@ api = tweepy.API(auth)
 file_name = 'last_seen.txt'
 
 
-def reply_to_tweets():
-    print('Retrieving and replying to tweets...')
-    last_id = retrieve_seen_id()
-    # all mentions since the latest last_id
-    mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
-    # iterate through each mention in reverse to reply to older tweets first
-    while True:
+class Tweet:
+
+    def reply_to_tweets(self):
+        print('Retrieving and replying to tweets...')
+        last_id = self.retrieve_seen_id()
+        # all mentions since the latest last_id
+        mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
+        # iterate through each mention in reverse to reply to older tweets first
         for mention in reversed(mentions):
             print(mention)
             # reply to tweets that meet criteria below
             if '#helloworld!' in mention.full_text.lower():
-                store_seen_id(mention.id)
+                self.store_seen_id(mention.id)
                 print(str(mention.id) + ' - ' + mention.user.screen_name + ' - ' + mention.full_text)
                 print('Found #helloworld! Responding back...')
                 # prints an error, if any
@@ -37,20 +47,26 @@ def reply_to_tweets():
                 # sleep for every 5 seconds
                 time.sleep(10)
 
+    # store the seen_id, so bot knows where to continue from next time
+    def store_seen_id(self, seen_id):
+        f_write = open(file_name, 'a')
+        f_write.write('\n' + str(seen_id))
+        f_write.close()
+        return
 
-# store the seen_id, so bot knows where to continue from next time
-def store_seen_id(seen_id):
-    f_write = open(file_name, 'a')
-    f_write.write('\n' + str(seen_id))
-    f_write.close()
-    return
+    # retrieve the latest seen_id, so bot knows where to continue
+    def retrieve_seen_id(self):
+        f_read = open(file_name, 'r')
+        # file_name needs value, or it will error.  Takes the last line as the value.  Don't leave empty lines
+        last_seen_id = int(f_read.readlines()[-1].strip())
+        # int(f_read[-1].read().strip())  # not needed
+        f_read.close()
+        return last_seen_id
 
 
-# retrieve the latest seen_id, so bot knows where to continue
-def retrieve_seen_id():
-    f_read = open(file_name, 'r')
-    # file_name needs value, or it will error.  Takes the last line as the value.  Don't leave empty lines
-    last_seen_id = int(f_read.readlines()[-1].strip())
-    # int(f_read[-1].read().strip())  # not needed
-    f_read.close()
-    return last_seen_id
+# driver code needed for this to work
+# while loop needed to run script constantly
+while True:
+    obj1 = Tweet()
+    obj1.reply_to_tweets()
+    time.sleep(10)
