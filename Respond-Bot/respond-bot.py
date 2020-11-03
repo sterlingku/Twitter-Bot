@@ -21,7 +21,7 @@ ACCESS_TOKEN_SECRET = environ['ACCESS_TOKEN_SECRET']
 
 auth = tweepy.OAuthHandler(API_CONSUMER_KEY, API_CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 file_name = 'last_seen.txt'
 
 
@@ -50,8 +50,8 @@ class Tweet:
                     api.create_favorite(mention.id)
                     # sleep for 5 seconds before replying
                     time.sleep(5)
-            # sleep for 10 seconds before re-running
-            time.sleep(10)
+            # sleep for 12 seconds before re-running. See rate limits: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/faq
+            time.sleep(15)
 
     # store the seen_id, so bot knows where to continue from next time
     def store_seen_id(self, seen_id):
