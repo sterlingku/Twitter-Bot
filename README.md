@@ -1,5 +1,6 @@
 Learning courtesy of: https://youtu.be/W0wWwglE1Vc
 Deployment courtesy of: https://www.youtube.com/watch?v=iLvMYXKIcPo
+See Twitter rate limits: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/faq
 
 For this app to work correctly:
 - Remove all Reply Tweets on AutoKuBot's Twitter.  It won't post duplicates.
