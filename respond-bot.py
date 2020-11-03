@@ -4,7 +4,7 @@ import time
 import random
 import tweepy
 
-# testing locally via .env file
+# uncomment to test locally via .env file
 # import os
 # from dotenv import load_dotenv
 # load_dotenv()
@@ -13,7 +13,7 @@ import tweepy
 # ACCESS_TOKEN_KEY = os.getenv('ACCESS_TOKEN_KEY')
 # ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 
-# stores the API keys in Heroku Config Vars
+# uncomment before deploying to Heroku.  Add the API info in Heroku Config Vars
 from os import environ
 API_CONSUMER_KEY = environ['API_CONSUMER_KEY']
 API_CONSUMER_SECRET = environ['API_CONSUMER_SECRET']
