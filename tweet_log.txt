@@ -1,1 +1,33 @@
 1234567890
+1311034221985632256 | 2020-11-03 20:20:05.365808 | sterlingku | @autokubot #helloWOrlD!
+1311034335382745088 | 2020-11-03 20:20:10.685076 | sterlingku | @autokubot #helloWORLD!
+1311034373341290496 | 2020-11-03 20:20:15.975834 | sterlingku | @autokubot #helloworld!
+1311769945001263104 | 2020-11-03 20:20:21.328777 | sterlingku | @autokubot #quote
+1311804080600219648 | 2020-11-03 20:20:26.816023 | sterlingku | @autokubot #quote
+1311804138284437504 | 2020-11-03 20:20:32.336542 | sterlingku | @autokubot another #quote
+1311804221218455552 | 2020-11-03 20:20:37.683170 | sterlingku | @autokubot and another #quote please
+1311804901060562944 | 2020-11-03 20:20:42.997974 | sterlingku | @autokubot one more #quote for fun
+1311805725404848130 | 2020-11-03 20:20:48.332720 | sterlingku | @autokubot can you take #quotes instead?
+1313905555367313408 | 2020-11-03 20:20:55.945342 | robot_ku | @autokubot #helloworld!
+1313912743095803904 | 2020-11-03 20:21:01.312664 | sterlingku | @autokubot #helloWorld!
+1313913270810472448 | 2020-11-03 20:21:06.729608 | sterlingku | @autokubot #helloworld!
+1322644576255926272 | 2020-11-03 20:21:12.142661 | sterlingku | @AutoKuBot #helloworld!
+1323383127713013761 | 2020-11-03 20:21:17.530486 | robot_ku | @autokubot #helloworld!
+1323384595799158785 | 2020-11-03 20:21:22.908103 | robot_ku | @autokubot #quote for me please
+1323384831250628609 | 2020-11-03 20:21:28.198008 | robot_ku | @AutoKuBot #quote here
+1323386306601234432 | 2020-11-03 20:21:33.489976 | robot_ku | @autokubot #helloworld! here
+1323394660467814403 | 2020-11-03 20:21:38.812071 | robot_ku | @AutoKuBot #helloworld! q
+1323394728713351168 | 2020-11-03 20:21:44.204542 | robot_ku | @AutoKuBot #helloworld! a
+1323398381486497792 | 2020-11-03 20:21:49.929075 | robot_ku | @AutoKuBot #helloworld! to you!
+1323405285436792836 | 2020-11-03 20:21:55.958892 | robot_ku | @AutoKuBot #helloworld! good day
+1323466741016526849 | 2020-11-03 20:22:01.388539 | sterlingku | @AutoKuBot #helloworld!
+1323740719463346176 | 2020-11-03 20:22:06.785254 | robot_ku | @AutoKuBot quote please
+1323741401826291712 | 2020-11-03 20:22:12.129832 | robot_ku | @AutoKuBot quote pls
+1323747335533330432 | 2020-11-03 20:22:17.861213 | robot_ku | @AutoKuBot #helloworld!
+1323747459575656449 | 2020-11-03 20:22:23.295687 | robot_ku | @AutoKuBot quotes plss
+1323747503615827968 | 2020-11-03 20:22:28.692623 | robot_ku | @AutoKuBot #helloworld! quotes
+1323748324248223744 | 2020-11-03 20:22:38.998219 | robot_ku | @AutoKuBot quote
+1323774795511525376 | 2020-11-03 20:22:44.383449 | robot_ku | @AutoKuBot quote me please
+1323775803130195969 | 2020-11-03 20:22:49.833519 | robot_ku | @AutoKuBot #helloworld! ss
+1323777720925347840 | 2020-11-03 20:22:55.240105 | robot_ku | @AutoKuBot pick me up quote
+1323801187016060928 | 2020-11-03 20:23:00.708740 | robot_ku | @AutoKuBot quote me
