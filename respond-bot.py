@@ -107,6 +107,6 @@ class Tweet:
         return quote
 
 
-# driver code needed for this to work locally
-# tweet = Tweet()
-# tweet.reply_to_tweets()
+# driver code needed for this to work
+tweet = Tweet()
+tweet.reply_to_tweets()
