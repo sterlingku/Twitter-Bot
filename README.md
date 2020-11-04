@@ -10,6 +10,7 @@ For this app to work correctly:
 - Ensure quotes.txt file exists and contains one quote per row.
 - When testing locally, ensure you have a '.env' file with your API keys/secrets.  You will need to comment/uncomment some code to make the API calls locally vs. on Heroku
 - If you need to generate a list of all the previous @ mentions to the bot, comment out the 'api.update_status' lines, so that the script can write to the tweet_log.txt without running into a duplicate or already favorited issue
+- Sync up the tweet_log.txt on Heroku and your local copy
 
 Additional notes:
 - Added a 12 second sleep timer due to Twitter API call limits

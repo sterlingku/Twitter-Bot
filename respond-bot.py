@@ -1,24 +1,15 @@
-# must delete file_name log (except first line) and delete responses to tweets for this to work
 import datetime
 import time
 import random
 import tweepy
+import os
+from dotenv import load_dotenv
 
-# uncomment to test locally via .env file
-# import os
-# from dotenv import load_dotenv
-# load_dotenv()
-# API_CONSUMER_KEY = os.getenv('API_CONSUMER_KEY')
-# API_CONSUMER_SECRET = os.getenv('API_CONSUMER_SECRET')
-# ACCESS_TOKEN_KEY = os.getenv('ACCESS_TOKEN_KEY')
-# ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
-
-# uncomment before deploying to Heroku.  Add the API info in Heroku Config Vars
-from os import environ
-API_CONSUMER_KEY = environ['API_CONSUMER_KEY']
-API_CONSUMER_SECRET = environ['API_CONSUMER_SECRET']
-ACCESS_TOKEN_KEY = environ['ACCESS_TOKEN_KEY']
-ACCESS_TOKEN_SECRET = environ['ACCESS_TOKEN_SECRET']
+load_dotenv()
+API_CONSUMER_KEY = os.getenv('API_CONSUMER_KEY')
+API_CONSUMER_SECRET = os.getenv('API_CONSUMER_SECRET')
+ACCESS_TOKEN_KEY = os.getenv('ACCESS_TOKEN_KEY')
+ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 
 auth = tweepy.OAuthHandler(API_CONSUMER_KEY, API_CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
@@ -35,6 +26,7 @@ class Tweet:
             print('Script is running. Now replying and liking tweets...')
             # retrieve the latest mention.id
             last_id = self.retrieve_seen_id()
+            print('last_id is: ' + last_id)
             # all mentions since the latest mention.id
             mentions = api.mentions_timeline(last_id, tweet_mode='extended', count=5000)
             # iterate through each new mention in reverse to reply to older tweets first
