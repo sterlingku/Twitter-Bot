@@ -101,6 +101,7 @@ class Tweet:
 
     # retrieve a random quote from quotes file
     def retrieve_quote(self):
+        # encoding='cp1252' required for Heroku because txt file is in utf-8
         f_read = open(quotes, 'r', encoding='cp1252')
         lines = f_read.readlines()
         quote = random.choice(lines)
