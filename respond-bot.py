@@ -101,7 +101,7 @@ class Tweet:
 
     # retrieve a random quote from quotes file
     def retrieve_quote(self):
-        f_read = open(quotes, 'r')
+        f_read = open(quotes, 'r', encoding='UTF-8')
         lines = f_read.readlines()
         quote = random.choice(lines)
         return quote
