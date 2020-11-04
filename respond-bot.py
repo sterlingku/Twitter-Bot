@@ -5,15 +5,19 @@ import tweepy
 import os
 from dotenv import load_dotenv
 
+# required for loading from .env or Heroku Config Vars
 load_dotenv()
 API_CONSUMER_KEY = os.getenv('API_CONSUMER_KEY')
 API_CONSUMER_SECRET = os.getenv('API_CONSUMER_SECRET')
 ACCESS_TOKEN_KEY = os.getenv('ACCESS_TOKEN_KEY')
 ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 
+# setting up API connection
 auth = tweepy.OAuthHandler(API_CONSUMER_KEY, API_CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True)
+
+# files that need to exist
 quotes = 'quotes.txt'
 tweet_log = 'tweet_log.txt'
 
@@ -33,9 +37,6 @@ class Tweet:
             for mention in reversed(mentions):
                 # print(mention)  # useful to find other metadata
                 # print(tweepy.error.TweepError)  # prints error message and end the script, if any
-                # skips liking the tweet if it has been liked in the past
-                # favorite the tweet
-                api.create_favorite(mention.id)
                 # reply to tweets that meet the criteria below
                 if '#helloworld!' in mention.full_text.lower():
                     # pass all these parameters to the tweet_log
@@ -44,6 +45,8 @@ class Tweet:
                         print(str(mention.id) + ' - ' + mention.user.screen_name + ' - ' + mention.full_text)
                         # respond with tweet
                         api.update_status('@' + mention.user.screen_name + ' HelloWorld back to you!', mention.id)
+                        # favorite the tweet
+                        api.create_favorite(mention.id)
                     else:
                         print('Already responded to this tweet! helloworld')
                     # sleep for 5 seconds before replying
@@ -54,6 +57,7 @@ class Tweet:
                         print(str(mention.id) + ' - ' + mention.user.screen_name + ' - ' + mention.full_text)
                         quote = self.retrieve_quote()
                         api.update_status('@' + mention.user.screen_name + ' ' + quote, mention.id)
+                        api.create_favorite(mention.id)
                     else:
                         print('Already responded to this tweet! quote')
                     time.sleep(5)
