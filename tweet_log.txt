@@ -39,3 +39,7 @@
 1323854205786890240 | 2020-11-03 21:18:55.274655 | robot_ku | @AutoKuBot quote please!
 1323855302534389760 | 2020-11-03 21:19:00.774306 | robot_ku | @autokubot quote meeee
 1323858365324275714 | 2020-11-03 21:23:33.862580 | robot_ku | @autokubot quote here
+1323860693955747840 | 2020-11-11 17:54:13.907550 | robot_ku | quote here @AutoKuBot
+1323861520942395392 | 2020-11-11 18:01:53.298739 | robot_ku | @autokubot quote plss
+1323861630279540736 | 2020-11-11 18:10:30.120015 | robot_ku | @autokubot #helloworld! q
+1326325599275606016 | 2020-11-11 22:06:12.326895 | robot_ku | @autokubot give me a quote please

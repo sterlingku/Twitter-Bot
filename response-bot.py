@@ -2,7 +2,10 @@ import os
 import datetime
 import time
 import random
+import pymongo
+# import dnspython
 from dotenv import load_dotenv
+from pymongo import MongoClient
 import tweepy
 
 
@@ -17,6 +20,29 @@ ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 auth = tweepy.OAuthHandler(API_CONSUMER_KEY, API_CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True)
+
+
+client = pymongo.MongoClient(os.getenv('MONGODB_URL'))
+db = client.test
+
+# database connection message
+try:
+    conn = MongoClient()
+    print('Successfully connected to MongoDB')
+except:
+    print('Failed to connect to MongoDB.')
+
+# db connection
+conn = MongoClient('localhost')
+
+# declaring variable for database to use in code
+db = conn.database
+
+# created collection
+collection = db.last_seen
+
+
+
 
 # files that need to exist
 quotes = 'quotes.txt'
