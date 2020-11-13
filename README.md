@@ -1,16 +1,15 @@
-This bot will reply to specific keywords when you '@<bot-name>' in a tweet.  Currently, the bot looks for '#helloworld!' and 'quote'.
+This bot will reply to specific keywords when you '@<bot-name>' in a tweet.  Currently, the bot looks for '#helloworld!', '#helloworld', 'quotes', and 'quote'.
 
 Example tweets: 
-- @AutoKuBot give me a quote please
 - @AutoKuBot #helloworld!
-
+- @AutoKuBot give me a quote please
+- quotes are nice @AutoKuBot
 
 For this app to work correctly:
-- Ensure the tweet_log.txt file exists and has an integer value on the first row.  The code looks for an int value to decide where to start the script.
+- (respond-bot.py ran locally only - Heroku doesn't write to files) Ensure the tweet_log.txt file exists and has an integer value on the first row.  The code looks for an int value to decide where to start the script.
 - Ensure quotes.txt file exists and contains one quote per row.
 - When testing locally, ensure you have a '.env' file with your API keys/secrets.  You will need to comment/uncomment some code to make the API calls locally vs. on Heroku
-- If you need to generate a list of all the previous @ mentions to the bot, comment out the 'api.update_status' lines, so that the script can write to the tweet_log.txt without running into a duplicate or already favorited issue
-- Sync up the tweet_log.txt on Heroku and your local copy
+- If you need to generate a text file of all the previous @ mentions, comment out the 'api.update_status' lines, so that the script can write to the tweet_log.txt without running into a duplicate or already favorited issue
 
 Additional notes:
 - Added a 12 second sleep timer due to Twitter API call limits
@@ -30,7 +29,10 @@ If you run into issues, install Heroku CLI and run the following commands to tro
 
 
 Learning courtesy of: https://youtu.be/W0wWwglE1Vc
-
 Deployment courtesy of: https://www.youtube.com/watch?v=iLvMYXKIcPo
-
 See Twitter rate limits: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/faq
+
+
+Future Enhancements:
+- add quotes to MongoDB
+- add stats, so users can see their metadata when they @mention

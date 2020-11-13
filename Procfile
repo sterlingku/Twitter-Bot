@@ -1,1 +1,1 @@
-worker1: python respond-bot.py
+worker1: python response-bot.py
