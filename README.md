@@ -32,6 +32,7 @@ This bot will reply to specific keywords when you '@<bot-name>' in a tweet.  Cur
 ##### Links
 - Learning courtesy of: https://youtu.be/W0wWwglE1Vc
 - Deployment courtesy of: https://www.youtube.com/watch?v=iLvMYXKIcPo
+- Twitter API Portal: https://developer.twitter.com/en/portal/dashboard
 - See Twitter rate limits: https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/faq
 - Tweepy library: http://docs.tweepy.org/en/latest/api.html
 
