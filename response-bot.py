@@ -2,9 +2,8 @@ import os
 import datetime
 import time
 import random
-import pymongo
 # import dnspython
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # install python-dotenv package
 from pymongo import MongoClient
 import tweepy
 
